@@ -1,0 +1,13 @@
+\section{Project Checkpoints and Objectives}
+
+\subsection{Start Objective}
+Our goals were to select and evaluate three previous senior projects. After receiving approval from our professor, we studied the selected project(s) and began drafting the Software Design Document (SDD) and Software Requirements Document (SRD). Upon completion of these two core documents, we moved forward with the Design Specification, Jira setup, TestRail documentation, and the User Manual.
+
+\subsection{First Checkpoint Objective}
+As previously outlined, our focus at this stage was completing the SDD and SRD. Both documents were finalized, aside from integrating the Workflow Diagram into the SDD. Thanks to efficient time management, we also completed the Design Specification ahead of schedule. Development of the Jira project board, User Manual, and TestRail documentation commenced and is expected to be completed by the next checkpoint.
+
+\subsection{Second Checkpoint Objective}
+Following the first checkpoint, we successfully completed the Jira board setup, User Manual, and TestRail documentation. With those deliverables finished, our attention shifted to the Docker portion of the final project. Additionally, we began finalizing the SDD by creating and inserting the Workflow Diagram under the System Architecture section. This was a strategic step, as the Workflow Diagram also needed to be submitted as a standalone file — addressing two requirements with one effort.
+
+\subsection{Final Checkpoint Objective}
+For the final checkpoint, our primary focus was completing the Workflow Diagram. Once finalized, we uploaded and committed it both as a standalone file and within the System Architecture section of the SDD. After conducting a final review of all documentation, we were ready to submit the GitHub repository link for final evaluation.
