@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\title{software design document \\ Snapshot 1}
+\author{Viper-Rocks 3338}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section*{Version History}
+\begin{tabular}{|l|l|l|}
+\hline
+Version & Date & Description \\
+\hline
+1.0 & \today & Initial SDD outline with project requirements and architecture \\
+\hline
+\end{tabular}
+
+\section{Introduction}
+\begin{itemize}
+  \item \textbf{Purpose:} Define  framework and project layout, objectives like ascouting, sizing, classification, what team member gets assigned what objectives
+  \item \textbf{Audience:} Development team and project stakeholders
+  \item \textbf{Overview:} Snapshot 1 establishes  image partitioning, measurement tools, and classification 
+\end{itemize}
+
+\section{Major Requirements}
+\subsection{Objective }
+allows users to identify, measure, and categorize lunar rocks
+\begin{enumerate}
+  \item \textbf{Scouting}\
+    take images and organize rocks for analysis
+  \item \textbf{Sizing}\
+    Measure dimensions with drawing tools
+  \item \textbf{Classification}\
+    Identify and classify into  categories
+\end{enumerate}
+
+\subsection{Scouting}
+\textbf{Objective:} Streamlined workflow for image layout and partitioning
+\begin{itemize}
+  \item Design a counting system for clarity
+  \item Partition images into logical segments to view them better
+  \item create seamless UI for image navigation
+\end{itemize}
+
+\subsection{Sizing}
+\textbf{Objective:} Tools for efficient measurement and progress
+\begin{itemize}
+  \item Drag n drop rock selection tool
+  \item Precision drawing tools for notes
+  \item Undo/redo functionality
+\end{itemize}
+
+\subsection{Classification}
+\textbf{Objective:} Accurate categorization with guidance
+\begin{itemize}
+  \item defined shape categories with examples
+  \item Skip ambiguous cases 
+  \item Visual guidance for each category
+\end{itemize}
+
+\section{System Architecture}
+\begin{itemize}
+  \item User loads image via web interface
+  \item Frontend partitions image and displays tools
+  \item Metric data sent to backend APi
+  \item Backend logs measurements in database
+  \item Classification results stored and displayed
+\end{itemize}
+
+\section{User Interface}
+\begin{itemize}
+  \item Web-based UI image viewer, tool panel
+  \item Interactive canvas for drawing and selectio
+  \item Dashboard showing current task progress and logs
+\end{itemize}
+
+\section{Glossary}
+\begin{description}
+  \item[UI] User interface
+  \item[API] Application programming interface
+  \item[DB] Database
+  \item[CLI] Command line interface 
+\end{description}
+
+\section{References}
+\begin{itemize}
+  \item Project brief: \url{https://ascent.cysun.org/project/project/view/227}
+\end{itemize}
+
+\end{document}
