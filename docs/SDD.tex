@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 
-\title{software design document \\ Snapshot 1}
+\title{software design document \ snapshot 2}
 \author{Viper-Rocks 3338}
 \date{\today}
 
@@ -11,85 +11,111 @@
 
 \tableofcontents
 
-\section*{Version History}
+\section*{version history}
 \begin{tabular}{|l|l|l|}
 \hline
-Version & Date & Description \\
+version & date & description \
 \hline
-1.0 & \today & Initial SDD outline with project requirements and architecture \\
+1.0 & snapshot 1 date & initial sdd outline with core requirements and architecture \
+\hline
+2.0 & \today & added reporting and export features, updated ui and architecture \
 \hline
 \end{tabular}
 
-\section{Introduction}
+\section{introduction}
 \begin{itemize}
-  \item \textbf{Purpose:} Define  framework and project layout, objectives like ascouting, sizing, classification, what team member gets assigned what objectives
-  \item \textbf{Audience:} Development team and project stakeholders
-  \item \textbf{Overview:} Snapshot 1 establishes  image partitioning, measurement tools, and classification 
+\item \textbf{purpose:} define framework, project layout, and objectives for snapshot 2 including reporting and export
+\item \textbf{audience:} development team and stakeholders
+\item \textbf{overview:} snapshot 2 extends image partitioning, measurement, and classification with summary reporting and csv export
 \end{itemize}
 
-\section{Major Requirements}
-\subsection{Objective }
-allows users to identify, measure, and categorize lunar rocks
+\section{major requirements}
+\subsection{objective}
+allows users to identify, measure, categorize lunar rocks and generate reports and exports
 \begin{enumerate}
-  \item \textbf{Scouting}\
-    take images and organize rocks for analysis
-  \item \textbf{Sizing}\
-    Measure dimensions with drawing tools
-  \item \textbf{Classification}\
-    Identify and classify into  categories
+\item \textbf{scouting}\
+capture and organize images for analysis
+\item \textbf{sizing}\
+measure dimensions with drawing tools
+\item \textbf{classification}\
+assign category labels to rock segments
+\item \textbf{reporting}\
+generate summary tables and charts of measurements
+\item \textbf{export}\
+export measurement and classification data as csv files
 \end{enumerate}
 
-\subsection{Scouting}
-\textbf{Objective:} Streamlined workflow for image layout and partitioning
+\subsection{scouting}
+\textbf{objective:} streamlined image upload and partitioning workflow
 \begin{itemize}
-  \item Design a counting system for clarity
-  \item Partition images into logical segments to view them better
-  \item create seamless UI for image navigation
+\item design counting layout
+\item partition images into segments
+\item intuitive navigation between segments
 \end{itemize}
 
-\subsection{Sizing}
-\textbf{Objective:} Tools for efficient measurement and progress
+\subsection{sizing}
+\textbf{objective:} precise measurement tools with progress tracking
 \begin{itemize}
-  \item Drag n drop rock selection tool
-  \item Precision drawing tools for notes
-  \item Undo/redo functionality
+\item drag-and-drop selection tool
+\item precision drawing with undo/redo
 \end{itemize}
 
-\subsection{Classification}
-\textbf{Objective:} Accurate categorization with guidance
+\subsection{classification}
+\textbf{objective:} guided rock categorization
 \begin{itemize}
-  \item defined shape categories with examples
-  \item Skip ambiguous cases 
-  \item Visual guidance for each category
+\item predefined shape examples
+\item skip ambiguous cases
+\item visual guidance per category
 \end{itemize}
 
-\section{System Architecture}
+\subsection{reporting}
+\textbf{objective:} provide quick analysis views
 \begin{itemize}
-  \item User loads image via web interface
-  \item Frontend partitions image and displays tools
-  \item Metric data sent to backend APi
-  \item Backend logs measurements in database
-  \item Classification results stored and displayed
+\item summary table of counts and measurements
+\item simple bar and pie charts
+\item filter by date or category
 \end{itemize}
 
-\section{User Interface}
+\subsection{export}
+\textbf{objective:} data extraction for external use
 \begin{itemize}
-  \item Web-based UI image viewer, tool panel
-  \item Interactive canvas for drawing and selectio
-  \item Dashboard showing current task progress and logs
+\item export selected data sets as csv
+\item browser download workflow
 \end{itemize}
 
-\section{Glossary}
+\section{system architecture}
+\begin{itemize}
+\item user uploads image via web ui
+\item frontend partitions images and renders tools
+\item metrics and classifications sent to backend api
+\item backend persists data in database
+\item reporting engine aggregates data and returns summaries
+\item export endpoint streams csv to client
+\end{itemize}
+
+\section{user interface}
+\begin{itemize}
+\item upload screen with file picker and project selector
+\item scouting view with segment gallery
+\item sizing canvas with draw, undo, redo controls
+\item classification panel with category icons
+\item reporting dashboard with tables and charts
+\item export button initiating csv download
+\end{itemize}
+
+\section{glossary}
 \begin{description}
-  \item[UI] User interface
-  \item[API] Application programming interface
-  \item[DB] Database
-  \item[CLI] Command line interface 
+\item[ui] user interface
+\item[api] application programming interface
+\item[db] database
+\item[csv] comma separated values
 \end{description}
 
-\section{References}
+\section{references}
 \begin{itemize}
-  \item Project brief: \url{https://ascent.cysun.org/project/project/view/227}
+\item project brief: \url{https://ascent.cysun.org/project/project/view/227}
+\item snapshot 1 sdd: \url{https://github.com/ChrislIlIIlIIl/Viper-Rocks/blob/main/docs/SDD.tex}
 \end{itemize}
 
 \end{document}
+%snapshot 2

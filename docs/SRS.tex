@@ -2,139 +2,178 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 
-\title{Software requirements specification \ snapshot 1}
+\title{software requirements specification \\ snapshot 2}
 \author{viper-rocks 3338}
 \date{\today}
 
 \begin{document}
 \maketitle
 
+\section*{version history}
+\begin{tabular}{|l|l|l|}
+\hline
+version & date & description \\
+\hline
+1.0 & snapshot 1 date & initial srs with scouting sizing classification \\
+\hline
+2.0 & \today & added reporting and export features \\
+\hline
+\end{tabular}
+
 \tableofcontents
 \newpage
 
-\section{Introduction}
-\subsection{Purpose}
-this document lists the basic functional and non functional requirements for snapshot 1 of the lunar rock analysis system
+\section{introduction}
+\subsection{purpose}
+this document lists the basic functional and non functional requirements for snapshot 2 of the lunar rock analysis system
 
-\subsection{Scope}
+\subsection{scope}
 users can
 \begin{itemize}
-\item upload rock images scouting
-\item measure rock dimensions sizing
-\item assign rocks to shape categories classification
+  \item upload rock images (scouting)
+  \item measure rock dimensions (sizing)
+  \item assign rocks to shape categories (classification)
+  \item generate summary reports (reporting)
+  \item download data as csv (export)
 \end{itemize}
 not included
 \begin{itemize}
-\item 3d rock modeling
-\item geology analysis
-\item user accounts beyond session storage
+  \item 3d rock modeling
+  \item geology analysis
+  \item user accounts beyond session storage
 \end{itemize}
 
-\subsection{Definitions, acronyms, abbreviations}
+\subsection{definitions, acronyms, abbreviations}
 \begin{description}
-\item[scouting] image upload and partitioning
-\item[sizing] drawing based measurement
-\item[classification] selecting one of six categories
-\item[UI] user interface
-\item[API] application programming interface
-\item[DB] database
+  \item[scouting] image upload and partitioning
+  \item[sizing] drawing-based measurement
+  \item[classification] selecting one of six categories
+  \item[reporting] generating summary tables and simple charts
+  \item[export] downloading measurements and classifications as csv
+  \item[ui] user interface
+  \item[api] application programming interface
+  \item[db] database
 \end{description}
 
-\section{Overall description}
+\section{overall description}
 \subsection{product perspective}
-first snapshot of a larger lunar rock tool future snapshots will add analytics and reporting
+snapshot 2 builds on core workflows by adding reporting and export capabilities
 
 \subsection{user classes}
 \begin{itemize}
-\item field scientists non technical users
-\item analysts technical reviewers
+  \item field scientists (non-technical users)
+  \item analysts (technical reviewers)
 \end{itemize}
 
-\subsection{Environment}
+\subsection{environment}
 \begin{itemize}
-\item browsers chrome firefox edge
-\item server ubuntu linux
-\item client any modern browser
+  \item browsers: chrome, firefox, edge
+  \item server: ubuntu linux
+  \item client: any modern browser
 \end{itemize}
 
-\subsection{Constraints}
+\subsection{constraints}
 \begin{itemize}
-\item postgresql for data
-\item docker deployment
-\item https only
+  \item postgresql for data storage
+  \item docker deployment
+  \item https only
 \end{itemize}
 
-\section{Functional requirements}
+\section{functional requirements}
 \begin{itemize}
-\item 1 scouting
-\begin{enumerate}
-\item upload images
-\item partition into segments
-\item view segments
-\end{enumerate}
-\item 2 sizing
-\begin{enumerate}
-\item draw measurement
-\item show value
-\item save entry
-\end{enumerate}
-\item 3 classification
-\begin{enumerate}
-\item show category options
-\item select and save category
-\end{enumerate}
+  \item fr1 – scouting
+    \begin{enumerate}
+      \item upload images
+      \item partition into segments
+      \item view segments
+    \end{enumerate}
+  \item fr2 – sizing
+    \begin{enumerate}
+      \item draw measurement
+      \item show value
+      \item save entry
+    \end{enumerate}
+  \item fr3 – classification
+    \begin{enumerate}
+      \item show category options
+      \item select and save category
+    \end{enumerate}
+  \item fr4 – reporting
+    \begin{enumerate}
+      \item generate summary of counts and measurements
+      \item filter by date or category
+      \item display simple charts
+    \end{enumerate}
+  \item fr5 – export
+    \begin{enumerate}
+      \item select data range or category
+      \item download csv file
+    \end{enumerate}
 \end{itemize}
 
-\section{Non functional requirements}
+\section{non functional requirements}
 \begin{itemize}
-\item performance image partitioning under 2s measurement latency under 100ms
-\item usability new users onboard in 5 min tooltips provided
-\item reliability uptime 99+ percent no data loss
-\item security https for all calls sanitize inputs
+  \item performance: image partitioning under 2s, measurement latency under 100ms, report generation under 5s
+  \item usability: new users onboard in 5 min, tooltips provided
+  \item reliability: uptime 99+ percent, no data loss
+  \item security: https for all calls, sanitize inputs
 \end{itemize}
 
-\section{External interfaces}
-\subsection{User interface}
+\section{external interfaces}
+\subsection{user interface}
 \begin{itemize}
-\item upload page simple file picker
-\item scouting view segment gallery
-\item sizing canvas draw undo redo
-\item classification view six icons
+  \item upload page: simple file picker
+  \item scouting view: segment gallery
+  \item sizing canvas: draw, undo, redo
+  \item classification view: six icons
+  \item reporting dashboard: table, filters, charts
+  \item export button: csv download
 \end{itemize}
 
-\subsection{API}
+\subsection{api}
 \begin{description}
-\item[post api/images] upload images returns ids
-\item[get api/images/ id /segments] get segments
-\item[post api/measure] save measurement
-\item[post api/classify] save classification
+  \item[post api/images] upload images, returns ids
+  \item[get api/images/\{id\}/segments] get segments
+  \item[post api/measure] save measurement
+  \item[post api/classify] save classification
+  \item[get api/report] fetch report data
+  \item[get api/export] download csv
 \end{description}
 
 \section{use cases}
 \begin{description}
-\item[partition image]
-\begin{itemize}
-\item actor field scientist
-\item flow click partition view segments
-\end{itemize}
-\item[measure rock]
-\begin{itemize}
-\item actor field scientist
-\item flow draw line see value save
-\end{itemize}
-\item[classify rock]
-\begin{itemize}
-\item actor analyst
-\item flow pick icon save
-\end{itemize}
+  \item[partition image]
+    \begin{itemize}
+      \item actor: field scientist
+      \item flow: click partition → view segments
+    \end{itemize}
+  \item[measure rock]
+    \begin{itemize}
+      \item actor: field scientist
+      \item flow: draw line → see value → save
+    \end{itemize}
+  \item[classify rock]
+    \begin{itemize}
+      \item actor: analyst
+      \item flow: pick icon → save
+    \end{itemize}
+  \item[generate report]
+    \begin{itemize}
+      \item actor: analyst
+      \item flow: select filters → view table → view charts
+    \end{itemize}
+  \item[export data]
+    \begin{itemize}
+      \item actor: analyst
+      \item flow: choose data → download csv
+    \end{itemize}
 \end{description}
 
-\section{Appendix}
+\section{appendix}
 \begin{itemize}
-\item project brief https://ascent.cysun.org/project/project/view/227
-\item sdd source https://github.com/ChrislIlIIlIIl/Viper-Rocks/blob/main/docs/SDD.tex
+  \item project brief: \url{https://ascent.cysun.org/project/project/view/227}
+  \item sdd source: \url{https://github.com/ChrislIlIIlIIl/Viper-Rocks/blob/main/docs/SDD.tex}
 \end{itemize}
 
 \end{document}
-
-//snapshot 2
+%snaphsot 2
