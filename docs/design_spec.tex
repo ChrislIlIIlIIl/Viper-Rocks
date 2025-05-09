@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\geometry{margin=1in}
+\titleformat{\section}{\normalfont\Large\bfseries}{}{0em}{}
+
+\title{\textbf{Design Specification: Lunar Rocks!}}
+\author{Senior Project Team}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Project Overview}
+The \textbf{Lunar Rocks!} platform is a citizen science initiative originally developed as \textit{VIPER Rocks!} in support of NASA's VIPER mission under the Artemis program. It enables the public to participate in lunar science by analyzing real lunar imagery and contributing to rock scouting, sizing, and classification tasks. Due to a shift in mission strategy and funding, the project evolved and was renamed \textit{Lunar Rocks!}, now using publicly available lunar imagery.
+
+\section*{2. Functional Requirements}
+\subsection*{2.1 Scouting}
+\textbf{Objective:} Achieve a streamlined workflow with a clear layout, effective partitioning, and an intuitive user experience.
+\begin{itemize}
+  \item \textbf{Design - Counting Layout}: Use dots for auto-counting rocks, ensuring clarity and consistency.
+  \item \textbf{Partitioning - Split Images}: Divide images into logical segments to facilitate detailed examination.
+  \item \textbf{User Interface}: User-friendly and responsive design for easy interaction.
+\end{itemize}
+
+\subsection*{2.2 Sizing}
+\textbf{Objective:} Equip users with tools for efficient rock analysis and progress management.
+\begin{itemize}
+  \item \textbf{Drag Tool}: Drag-and-drop interface for selecting and moving rocks.
+  \item \textbf{Drawing Tools}: Precision tools for tracing and measurement.
+  \item \textbf{Undo/Redo}: Easily correct mistakes for smoother workflow.
+  \item \textbf{Save Feature}: Automatically save progress to prevent data loss.
+\end{itemize}
+
+\subsection*{2.3 Classification}
+\textbf{Objective:} Streamline the rock classification process with defined categories, clear guidance, and robust ambiguity management.
+\begin{itemize}
+  \item \textbf{Shape Categories}: Six precise shape types for classification.
+  \item \textbf{Ambiguity Handling}: Allow users to skip unclear cases.
+  \item \textbf{Visual Guidance}: Image examples for each shape type.
+\end{itemize}
+
+\section*{3. System Architecture}
+\subsection*{Frontend}
+\begin{itemize}
+  \item \textbf{React}: Component-based architecture for modular UI
+  \item \textbf{Vite}: Fast development tooling with modern JS support
+\end{itemize}
+
+\subsection*{Backend}
+\begin{itemize}
+  \item \textbf{Node.js}: Primary API platform for async data handling
+  \item \textbf{Tomcat (Java)}: Supports legacy servlet and JSP services
+\end{itemize}
+
+\subsection*{Database}
+\begin{itemize}
+  \item \textbf{PostgreSQL}: Stores user actions, images, and task metadata
+\end{itemize}
+
+\section*{4. Page/Feature Breakdown}
+\begin{itemize}
+  \item \textbf{Home Page}: Introduction, mission overview, login/register
+  \item \textbf{Dashboard}: Task navigation for Scouting, Sizing, Classification
+  \item \textbf{Scouting Tool}: Mark rocks and count within image quadrants
+  \item \textbf{Sizing Tool}: Canvas tracing interface for measuring rocks
+  \item \textbf{Classification Tool}: Drop-down or clickable interface for shape labeling
+  \item \textbf{Tutorial Page}: Instructions and visual guides for all tasks
+  \item \textbf{User Profile}: Progress tracking, potential badges (future)
+  \item \textbf{Admin Dashboard}: Future enhancement for moderation and review
+\end{itemize}
+
+\section*{5. Technical Challenges and Learnings}
+\begin{itemize}
+  \item Inherited incomplete codebase, required deep reverse engineering
+  \item Migrated some components from JavaScript to Java
+  \item Integrated frontend and backend with mixed technology stack
+  \item Gained experience with React, PostgreSQL, VMs, and Jakarta EE
+\end{itemize}
+
+\section*{6. Future Enhancements}
+\begin{itemize}
+  \item Better image quadrant logic
+  \item Grouping users by task accuracy
+  \item Gamification: achievements, tutorials, badges
+  \item Security: blocking malicious users
+  \item Beta testing and deployment with real-time mission data
+\end{itemize}
+
+\section*{7. Team Reflection}
+\begin{itemize}
+  \item Team collaboration was a major learning curve
+  \item Balancing time between classes and project milestones was challenging
+  \item Communication and version control (Git/GitHub) were essential
+  \item Real-world experience in legacy code maintenance and cross-stack development
+\end{itemize}
+
+\section*{8. Mission Significance}
+\textbf{The Lunar Rocks! project empowers citizen scientists to play an active role in NASA’s mission to explore the Moon.} By contributing to tasks like scouting, sizing, and classification, participants help uncover valuable geological insights and support the future of lunar exploration.
+\begin{itemize}
+  \item \textbf{Mission:} Foster collaboration in lunar research
+  \item \textbf{Impact:} Enable discoveries that advance space science
+  \item \textbf{Tasks:} Scouting, sizing, and classifying rocks
+  \item \textbf{Citizen Scientists:} Essential contributors to the mission’s success
+\end{itemize}
+
+\section*{9. References}
+\begin{itemize}
+  \item NASA Artemis Program: \url{https://www.nasa.gov/specials/artemis/}
+  \item VIPER Mission Overview: \url{https://www.nasa.gov/viper}
+\end{itemize}
+
+\end{document}
