@@ -1,0 +1,8 @@
+The following diagram illustrates this workflow from the user's perspective, highlighting each task's sequence and system interaction:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/A_flowchart_diagram_depicts_the_system_architectur.png}
+    \caption{Lunar Rocks! Citizen Scientist Workflow Diagram}
+    \label{fig:system_architecture}
+\end{figure}
