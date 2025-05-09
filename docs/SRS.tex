@@ -2,178 +2,83 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 
-\title{software requirements specification \\ snapshot 2}
-\author{viper-rocks 3338}
+\title{Software Requirements Specification}
+\author{Viper-Rocks 3338}
 \date{\today}
 
 \begin{document}
 \maketitle
 
-\section*{version history}
-\begin{tabular}{|l|l|l|}
-\hline
-version & date & description \\
-\hline
-1.0 & snapshot 1 date & initial srs with scouting sizing classification \\
-\hline
-2.0 & \today & added reporting and export features \\
-\hline
-\end{tabular}
-
 \tableofcontents
 \newpage
 
-\section{introduction}
-\subsection{purpose}
-this document lists the basic functional and non functional requirements for snapshot 2 of the lunar rock analysis system
+\section*{Version History}
+\begin{tabular}{|l|l|p{8cm}|}
+\hline
+\textbf{Version} & \textbf{Date}       & \textbf{Description} \\ \hline
+0.1   & May 16 2025      & Initial requirements for core features \\ \hline
+0.2   & May 23 2025       & Added reporting and CSV export requirements \\ \hline
+0.3   & May 30 2025               & Added Data Export and TestRail integration requirements \\ \hline
+1.0   & Final date            & Final review and future work summary \\ \hline
+\end{tabular}
 
-\subsection{scope}
-users can
+\section{Introduction}
 \begin{itemize}
-  \item upload rock images (scouting)
-  \item measure rock dimensions (sizing)
-  \item assign rocks to shape categories (classification)
-  \item generate summary reports (reporting)
-  \item download data as csv (export)
-\end{itemize}
-not included
-\begin{itemize}
-  \item 3d rock modeling
-  \item geology analysis
-  \item user accounts beyond session storage
+  \item \textbf{Purpose:} Define functional and non-functional requirements for the lunar rock analysis system
+  \item \textbf{Intended Audience:} Developers, testers, and project stakeholders
+  \item \textbf{Overview:} Snapshot 3 introduces data export (CSV/PDF) and TestRail integration to support quality assurance workflows
 \end{itemize}
 
-\subsection{definitions, acronyms, abbreviations}
+\section{External Interface Requirements}
+\subsection{User Interface}
+\begin{itemize}
+  \item Upload Screen: file picker and project selector
+  \item Scouting View: segmented gallery display
+  \item Sizing Canvas: draw/undo/redo controls and measurement display
+  \item Classification Panel: category selection icons
+  \item Reporting Dashboard: tables/charts with filter controls
+  \item Export Dialog: format chooser and download actio
+  \item TestRail Dashboard: test-run summary view with links to test cases
+\end{itemize}
+
+\subsection{Software Interfaces}
 \begin{description}
-  \item[scouting] image upload and partitioning
-  \item[sizing] drawing-based measurement
-  \item[classification] selecting one of six categories
-  \item[reporting] generating summary tables and simple charts
-  \item[export] downloading measurements and classifications as csv
-  \item[ui] user interface
-  \item[api] application programming interface
-  \item[db] database
+  \item[\textbf{POST} \texttt{/api/images}]  
+    Upload images and receive image IDs.
+  \item[\textbf{GET} \texttt{/api/images/\{id\}/segments}]  
+    Retrieve image segments.
+  \item[\textbf{POST} \texttt{/api/measure}]  
+    Submit measurement data.
+  \item[\textbf{POST} \texttt{/api/classify}]  
+    Submit classification data.
+  \item[\textbf{GET} \texttt{/api/export?format=\{csv,pdf\}}]  
+    Download exported data.
+  \item[\textbf{GET} \texttt{/api/testrail/runs}]  
+    Fetch TestRail test-run summaries.
 \end{description}
 
-\section{overall description}
-\subsection{product perspective}
-snapshot 2 builds on core workflows by adding reporting and export capabilities
 
-\subsection{user classes}
+\section{Legal and Ethical Considerations}
 \begin{itemize}
-  \item field scientists (non-technical users)
-  \item analysts (technical reviewers)
+  \item Exported files must exclude any personal identifiers or sensitive data
+  \item All data transmission shall occur over HTTPS to ensure confidentiality
+  \item Records retention policies must align with institutional governance
 \end{itemize}
 
-\subsection{environment}
-\begin{itemize}
-  \item browsers: chrome, firefox, edge
-  \item server: ubuntu linux
-  \item client: any modern browser
-\end{itemize}
-
-\subsection{constraints}
-\begin{itemize}
-  \item postgresql for data storage
-  \item docker deployment
-  \item https only
-\end{itemize}
-
-\section{functional requirements}
-\begin{itemize}
-  \item fr1 – scouting
-    \begin{enumerate}
-      \item upload images
-      \item partition into segments
-      \item view segments
-    \end{enumerate}
-  \item fr2 – sizing
-    \begin{enumerate}
-      \item draw measurement
-      \item show value
-      \item save entry
-    \end{enumerate}
-  \item fr3 – classification
-    \begin{enumerate}
-      \item show category options
-      \item select and save category
-    \end{enumerate}
-  \item fr4 – reporting
-    \begin{enumerate}
-      \item generate summary of counts and measurements
-      \item filter by date or category
-      \item display simple charts
-    \end{enumerate}
-  \item fr5 – export
-    \begin{enumerate}
-      \item select data range or category
-      \item download csv file
-    \end{enumerate}
-\end{itemize}
-
-\section{non functional requirements}
-\begin{itemize}
-  \item performance: image partitioning under 2s, measurement latency under 100ms, report generation under 5s
-  \item usability: new users onboard in 5 min, tooltips provided
-  \item reliability: uptime 99+ percent, no data loss
-  \item security: https for all calls, sanitize inputs
-\end{itemize}
-
-\section{external interfaces}
-\subsection{user interface}
-\begin{itemize}
-  \item upload page: simple file picker
-  \item scouting view: segment gallery
-  \item sizing canvas: draw, undo, redo
-  \item classification view: six icons
-  \item reporting dashboard: table, filters, charts
-  \item export button: csv download
-\end{itemize}
-
-\subsection{api}
+\section{Glossary}
 \begin{description}
-  \item[post api/images] upload images, returns ids
-  \item[get api/images/\{id\}/segments] get segments
-  \item[post api/measure] save measurement
-  \item[post api/classify] save classification
-  \item[get api/report] fetch report data
-  \item[get api/export] download csv
+  \item[UI] User Interface
+  \item[API] Application Programming Interface
+  \item[CSV] Comma-Separated Values
+  \item[PDF] Portable Document Format
+  \item[TR] TestRail
+  \item[PII] Personally Identifiable Information
 \end{description}
 
-\section{use cases}
-\begin{description}
-  \item[partition image]
-    \begin{itemize}
-      \item actor: field scientist
-      \item flow: click partition → view segments
-    \end{itemize}
-  \item[measure rock]
-    \begin{itemize}
-      \item actor: field scientist
-      \item flow: draw line → see value → save
-    \end{itemize}
-  \item[classify rock]
-    \begin{itemize}
-      \item actor: analyst
-      \item flow: pick icon → save
-    \end{itemize}
-  \item[generate report]
-    \begin{itemize}
-      \item actor: analyst
-      \item flow: select filters → view table → view charts
-    \end{itemize}
-  \item[export data]
-    \begin{itemize}
-      \item actor: analyst
-      \item flow: choose data → download csv
-    \end{itemize}
-\end{description}
-
-\section{appendix}
+\section{references}
 \begin{itemize}
-  \item project brief: \url{https://ascent.cysun.org/project/project/view/227}
-  \item sdd source: \url{https://github.com/ChrislIlIIlIIl/Viper-Rocks/blob/main/docs/SDD.tex}
+\item project brief: \url{https://ascent.cysun.org/project/project/view/227}
+\item snapshot 1 sdd: \url{https://github.com/ChrislIlIIlIIl/Viper-Rocks/blob/main/docs/SDD.tex}
 \end{itemize}
 
 \end{document}
-%snaphsot 2
