@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 
-\title{software design document \ snapshot 2}
+\title{Software Design Document}
 \author{Viper-Rocks 3338}
 \date{\today}
 
@@ -10,112 +10,71 @@
 \maketitle
 
 \tableofcontents
+\newpage
 
-\section*{version history}
-\begin{tabular}{|l|l|l|}
+\section*{Version History}
+\begin{tabular}{|l|l|p{8cm}|}
 \hline
-version & date & description \
-\hline
-1.0 & snapshot 1 date & initial sdd outline with core requirements and architecture \
-\hline
-2.0 & \today & added reporting and export features, updated ui and architecture \
-\hline
+\textbf{Version} & \textbf{Date}       & \textbf{Description} \\ \hline
+1.0   & May 16 2025          & Initial outline: core requirements and architecture \\ \hline
+2.0   & May 23 2025          & Added reporting and CSV export features \\ \hline
+3.0   & May 30 2025          & Snapshot 3: integrated TestRail, refined tech stack and UI frameworks \\ \hline
 \end{tabular}
 
-\section{introduction}
+\section{Introduction}
 \begin{itemize}
-\item \textbf{purpose:} define framework, project layout, and objectives for snapshot 2 including reporting and export
-\item \textbf{audience:} development team and stakeholders
-\item \textbf{overview:} snapshot 2 extends image partitioning, measurement, and classification with summary reporting and csv export
+  \item \textbf{Purpose:} Present the design blueprint for the Lunar Rocks! analysis tool covering component interactions, data flows, and UI architecture
+  \item \textbf{Intended Audience:} Development team, testers, and project stakeholders
+  \item \textbf{Overview:} Snapshot 3 refines architectural strategies, updates technology stack, adds TestRail integration, and formalizes UI guidelines using JPL’s Explorer-1 design system
 \end{itemize}
 
-\section{major requirements}
-\subsection{objective}
-allows users to identify, measure, categorize lunar rocks and generate reports and exports
-\begin{enumerate}
-\item \textbf{scouting}\
-capture and organize images for analysis
-\item \textbf{sizing}\
-measure dimensions with drawing tools
-\item \textbf{classification}\
-assign category labels to rock segments
-\item \textbf{reporting}\
-generate summary tables and charts of measurements
-\item \textbf{export}\
-export measurement and classification data as csv files
-\end{enumerate}
-
-\subsection{scouting}
-\textbf{objective:} streamlined image upload and partitioning workflow
+\section{System Architecture}
 \begin{itemize}
-\item design counting layout
-\item partition images into segments
-\item intuitive navigation between segments
+  \item \textbf{Architecture Pattern:} Clear separation of front-end (React + Next.js) and back-end (Node.js REST API)
+  \item \textbf{Tech Stack:} React 18, Next.js 14, Konva.js for canvas tasks; Node.js + Express; PostgreSQL 16 with PostGIS; Sequelize ORM; QGIS for geospatial preprocessing
+  \item \textbf{Data Flow Diagrams:} Level 0 outlines user interactions (Sign In, Main Control, Main Tasks); Level 1 decomposes Scouting, Sizing, Classification, Reporting, Export, and TestRail polling
+  \item \textbf{Services:} CSV export endpoint; reporting engine aggregates metrics; TestRail connector fetches and displays test-run summaries via API
 \end{itemize}
 
-\subsection{sizing}
-\textbf{objective:} precise measurement tools with progress tracking
+\section{User Interface}
+\subsection{UI Frameworks}
 \begin{itemize}
-\item drag-and-drop selection tool
-\item precision drawing with undo/redo
+  \item Based on JPL’s Explorer-1 Design System with React and TailwindCSS
+  \item Accessibility first: WCAG-compliant colors, keyboard navigation, screen-reader labels
 \end{itemize}
 
-\subsection{classification}
-\textbf{objective:} guided rock categorization
+\subsection{Primary Screens}
 \begin{itemize}
-\item predefined shape examples
-\item skip ambiguous cases
-\item visual guidance per category
+  \item \emph{Upload}: File picker, project selector dashboard
+  \item \emph{Scouting}: Auto-numbered segment gallery
+  \item \emph{Sizing Canvas}: Konva-based measurement tools with undo/redo
+  \item \emph{Classification}: Category icons with visual size/shape guidance
+  \item \emph{Reporting Dashboard}: Filterable tables and charts
+  \item \emph{Export Dialog}: CSV/PDF format chooser and download
+  \item \emph{TestRail Dashboard}: Shows linked test runs and pass/fail statuses
 \end{itemize}
 
-\subsection{reporting}
-\textbf{objective:} provide quick analysis views
+\subsection{Database Integration}
 \begin{itemize}
-\item summary table of counts and measurements
-\item simple bar and pie charts
-\item filter by date or category
+  \item Sequelize connection pooling for efficient queries
+  \item Entities: users, images, segments, measurements, classifications, test_runs
 \end{itemize}
 
-\subsection{export}
-\textbf{objective:} data extraction for external use
-\begin{itemize}
-\item export selected data sets as csv
-\item browser download workflow
-\end{itemize}
-
-\section{system architecture}
-\begin{itemize}
-\item user uploads image via web ui
-\item frontend partitions images and renders tools
-\item metrics and classifications sent to backend api
-\item backend persists data in database
-\item reporting engine aggregates data and returns summaries
-\item export endpoint streams csv to client
-\end{itemize}
-
-\section{user interface}
-\begin{itemize}
-\item upload screen with file picker and project selector
-\item scouting view with segment gallery
-\item sizing canvas with draw, undo, redo controls
-\item classification panel with category icons
-\item reporting dashboard with tables and charts
-\item export button initiating csv download
-\end{itemize}
-
-\section{glossary}
+\section{Glossary}
 \begin{description}
-\item[ui] user interface
-\item[api] application programming interface
-\item[db] database
-\item[csv] comma separated values
+  \item[UI] User Interface
+  \item[API] Application Programming Interface
+  \item[DFD] Data Flow Diagram
+  \item[CSV] Comma-Separated Values
+  \item[PDF] Portable Document Format
+  \item[TR] TestRail
+  \item[ORM] Object-Relational Mapping
+  \item[WCAG] Web Content Accessibility Guidelines
 \end{description}
 
-\section{references}
+\section{References}
 \begin{itemize}
-\item project brief: \url{https://ascent.cysun.org/project/project/view/227}
-\item snapshot 1 sdd: \url{https://github.com/ChrislIlIIlIIl/Viper-Rocks/blob/main/docs/SDD.tex}
+  \item project brief: \url{https://ascent.cysun.org/project/project/view/227}
 \end{itemize}
 
 \end{document}
-%snapshot 2
