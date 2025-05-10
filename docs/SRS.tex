@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage{hyperref}
+\usepackage[hidelinks,linktoc=none]{hyperref}
 
 \title{Software Requirements Specification}
 \author{Viper-Rocks 3338}
@@ -16,53 +16,49 @@
 \begin{tabular}{|l|l|p{8cm}|}
 \hline
 \textbf{Version} & \textbf{Date}       & \textbf{Description} \\ \hline
-0.1   & May 16 2025      & Initial requirements for core features \\ \hline
-0.2   & May 23 2025       & Added reporting and CSV export requirements \\ \hline
-0.3   & May 30 2025               & Added Data Export and TestRail integration requirements \\ \hline
-1.0   & Final date            & Final review and future work summary \\ \hline
+0.1   & May 16, 2025      & Initial requirements for core features \\ \hline
+0.2   & May 23, 2025      & Added reporting and CSV export requirements \\ \hline
+0.3   & May 30, 2025      & Added Data Export and TestRail integration requirements \\ \hline
+1.0   & May 31, 2025      & Final review; updated legal and ethical considerations \\ \hline
 \end{tabular}
 
 \section{Introduction}
 \begin{itemize}
   \item \textbf{Purpose:} Define functional and non-functional requirements for the lunar rock analysis system
   \item \textbf{Intended Audience:} Developers, testers, and project stakeholders
-  \item \textbf{Overview:} Snapshot 3 introduces data export (CSV/PDF) and TestRail integration to support quality assurance workflows
+  \item \textbf{Overview:} Snapshot 4 finalizes requirements and refines all interface and integration details
 \end{itemize}
 
 \section{External Interface Requirements}
+
 \subsection{User Interface}
 \begin{itemize}
   \item Upload Screen: file picker and project selector
   \item Scouting View: segmented gallery display
   \item Sizing Canvas: draw/undo/redo controls and measurement display
   \item Classification Panel: category selection icons
-  \item Reporting Dashboard: tables/charts with filter controls
-  \item Export Dialog: format chooser and download actio
+  \item Reporting Dashboard: tables and charts with filter options
+  \item Export Dialog: format chooser and download action
   \item TestRail Dashboard: test-run summary view with links to test cases
 \end{itemize}
 
 \subsection{Software Interfaces}
 \begin{description}
-  \item[\textbf{POST} \texttt{/api/images}]  
-    Upload images and receive image IDs.
-  \item[\textbf{GET} \texttt{/api/images/\{id\}/segments}]  
-    Retrieve image segments.
-  \item[\textbf{POST} \texttt{/api/measure}]  
-    Submit measurement data.
-  \item[\textbf{POST} \texttt{/api/classify}]  
-    Submit classification data.
-  \item[\textbf{GET} \texttt{/api/export?format=\{csv,pdf\}}]  
-    Download exported data.
-  \item[\textbf{GET} \texttt{/api/testrail/runs}]  
-    Fetch TestRail test-run summaries.
+  \item[\textbf{POST} \texttt{/api/images}]  Upload images and receive image IDs
+  \item[\textbf{GET} \texttt{/api/images/\{id\}/segments}]  Retrieve image segments
+  \item[\textbf{POST} \texttt{/api/measure}]  Submit measurement data
+  \item[\textbf{POST} \texttt{/api/classify}]  Submit classification data
+  \item[\textbf{GET} \texttt{/api/export?format=\{csv,pdf\}}]  Download exported data
+  \item[\textbf{GET} \texttt{/api/testrail/runs}]  Fetch TestRail test-run summaries
 \end{description}
-
 
 \section{Legal and Ethical Considerations}
 \begin{itemize}
-  \item Exported files must exclude any personal identifiers or sensitive data
+  \item Exported files must exclude personal identifiers or sensitive data
   \item All data transmission shall occur over HTTPS to ensure confidentiality
-  \item Records retention policies must align with institutional governance
+  \item Data retention policies must comply with institutional and legal guidelines
+  \item Comply with international data protection regulations
+  \item Adhere to TestRail API usage terms and license agreements
 \end{itemize}
 
 \section{Glossary}
@@ -75,10 +71,10 @@
   \item[PII] Personally Identifiable Information
 \end{description}
 
-\section{references}
+\section{References}
 \begin{itemize}
-\item project brief: \url{https://ascent.cysun.org/project/project/view/227}
-\item snapshot 1 sdd: \url{https://github.com/ChrislIlIIlIIl/Viper-Rocks/blob/main/docs/SDD.tex}
+  \item Project brief: \url{https://ascent.cysun.org/project/project/view/227}
+  \item SDD source: \url{https://github.com/ChrislIlIIlIIl/Viper-Rocks/blob/main/docs/SDD.tex}
 \end{itemize}
 
 \end{document}
